@@ -1,8 +1,17 @@
-// Testing out webpack initial setup of index.js
-console.log("testing index.js webpack");
+import { createToDo } from './create-to-do.js';
+import { blankProjectLoad } from './blank-project-load.js';
+import { initialdomManip } from './initial-dom-manip.js';
 
-// Testing out DOM manip via webpack
-const contentDiv = document.querySelector(".content");
-const testH1 = document.createElement("h1");
-testH1.textContent = "HELLO WORLD...TEST FROM WEBPACK INDEX.JS DOM MANIP";
-contentDiv.appendChild(testH1);
+// Call blankProjectLoad on first land
+blankProjectLoad();
+
+// Call DOM Manipulation module to control UI
+initialdomManip();
+
+// TODO: click event module here for todo and project creations
+
+// Call create-to-do.js module file and apply some objects/properties (this will eventually be replaced by UI input)
+const myToDo = createToDo("Grocery Run", "Go get groceries", "6/15/2022", "Low", "Meat, Eggs, Milk");
+const myToDo2 = createToDo("Homework", "Do Odin Project Work", "6/20/2022", "Medium", "Read Module, Do ToDo Project");
+console.log("Show me properties on myToDo from index.js....", myToDo);
+console.log("Show me properties on myToDo2 from index.js....", myToDo2);
